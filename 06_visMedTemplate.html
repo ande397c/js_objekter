@@ -4,23 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05_visAlleDyr</title>
+    <title>06_visMedTemplate</title>
   </head>
   <body>
-    <article id="dyr">
-      <h3></h3>
-      <p></p>
-      <img src="" alt="" />
-    </article>
-    <section id="liste"></section>
+    <style>
+      article {
+        border: 1px solid #333;
+        padding: 10px;
+      }
+
+      img {
+        max-width: 30%;
+      }
+    </style>
+
+    <section></section>
+
+    <template>
+      <article>
+        <h2></h2>
+        <img src="" alt="" />
+        <p class="Type"></p>
+        <p class="Levested"></p>
+      </article>
+    </template>
+
     <script>
       document.addEventListener("DOMContentLoaded", start);
-
-      //   const destination = document.querySelector("#dyr");
-      //   const navn = `Dyr: ${dyr.navn}, type: ${dyr.type}, levested: ${dyr.levested}`;
-      //   destination.querySelector("h3").textContent = navn;
-
-      //   destination.querySelector("img").src = dyr.billede;
 
       let dyr = [
         {
@@ -54,12 +64,17 @@
           billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
         },
       ];
+      let container = document.querySelector("section");
+      let temp = document.querySelector("template");
 
       function start() {
-        console.log("loaded");
-        const list = document.querySelector("#liste");
-        dyr.forEach((dyr) => {
-          list.innerHTML += `<p>${dyr.navn} ${dyr.type} ${dyr.levested} ${dyr.billede}<p>`;
+        dyr.forEach((etDyr) => {
+          let klon = temp.cloneNode(true).content;
+          klon.querySelector("h2").textContent = etDyr.navn;
+          klon.querySelector(".Type").textContent = etDyr.type;
+          klon.querySelector(".Levested").textContent = etDyr.levested;
+          klon.querySelector("img").src = etDyr.billede;
+          container.appendChild(klon);
         });
       }
     </script>

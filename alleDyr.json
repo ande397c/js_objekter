@@ -1,0 +1,32 @@
+[
+  {
+    "navn": "girs",
+    "type": "amfibie",
+    "levested": "farm",
+    "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+  },
+  {
+    "navn": "frø",
+    "type": "pattedyr",
+    "levested": "vandområder",
+    "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+  },
+  {
+    "navn": "ræv",
+    "type": "pattedyr",
+    "levested": "skov",
+    "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+  },
+  {
+    "navn": "sild",
+    "type": "fisk",
+    "levested": "havet",
+    "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+  },
+  {
+    "navn": "krokodille",
+    "type": "krybdyr",
+    "levested": "vandet",
+    "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+  }
+]

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01_dyrIjason</title>
+  </head>
+  <body>
+    <style>
+      article {
+        border: 1px solid #333;
+        padding: 10px;
+      }
+
+      img {
+        max-width: 30%;
+      }
+    </style>
+
+    <section></section>
+
+    <template>
+      <article>
+        <h2></h2>
+        <img src="" alt="" />
+        <p class="Type"></p>
+        <p class="Levested"></p>
+      </article>
+    </template>
+
+    <script>
+      let alleDyr;
+      let container;
+      let temp;
+
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        container = document.querySelector("section");
+        temp = document.querySelector("template");
+        hentdata();
+      }
+
+      async function hentdata() {
+        const response = await fetch("alleDyr.json");
+        alleDyr = await response.json();
+        visDyr();
+      }
+
+      function visDyr() {
+        alleDyr.forEach((etDyr) => {
+          let klon = temp.cloneNode(true).content;
+          klon.querySelector("h2").textContent = etDyr.navn;
+          klon.querySelector(".Type").textContent = etDyr.type;
+          klon.querySelector(".Levested").textContent = etDyr.levested;
+          klon.querySelector("img").src = etDyr.billede;
+          container.appendChild(klon);
+        });
+      }
+    </script>
+  </body>
+</html>
